@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Receiver Form</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full my-5">
+    <h2 class="text-2xl font-semibold mb-4">Who Receives NOTICE</h2>
+    <p class="text-gray-600 mb-6">
+      Property will receive posted notice. Notice will be emailed to all addresses below and will be postal mailed to
+      tenant and postal addresses below. Check each recipient to send notice.
+    </p>
+    <form id="receiver-form" method="post" action="payment">
+
+      <!-- Tenant 1 -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <label for="tenant_email_1" class="text-sm font-medium text-gray-700">Tenant 1 Email</label>
+        </div>
+        <input type="email" id="tenant_email_1" name="tenant_email_1"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" required>
+      </div>
+
+      <!-- Tenant 2 -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="tenant2" name="ctenant2" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('tenant2')">
+          <label for="tenant_email_2" class="text-sm font-medium text-gray-700">Tenant 2 Email</label>
+        </div>
+        <input type="email" id="tenant_email_2" name="tenant_email_2"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Tenant 3 -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="tenant3" name="ctenant3" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('tenant3')">
+          <label for="tenant_email_3" class="text-sm font-medium text-gray-700">Tenant 3 Email</label>
+        </div>
+        <input type="email" id="tenant_email_3" name="tenant_email_3"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Tenant 4 -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="tenant4" name="ctenant4" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('tenant4')">
+          <label for="tenant_email_4" class="text-sm font-medium text-gray-700">Tenant 4 Email</label>
+        </div>
+        <input type="email" id="tenant_email_4" name="tenant_email_4"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Landlord Email -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="clandlord" name="clandlord" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('clandlord')">
+          <label for="landlord_email" class="text-sm font-medium text-gray-700">Landlord Email</label>
+        </div>
+        <input type="email" id="landlord_email" name="landlord_email"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Landlord Attorney Email -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="cattorney" name="cattorney" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('cattorney')">
+          <label for="attorney_email" class="text-sm font-medium text-gray-700">Attorney Email</label>
+        </div>
+        <input type="email" id="attorney_email" name="attorney_email"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Landlord Manager Email -->
+      <div class="mb-4">
+        <div class="flex items-center">
+          <input type="checkbox" id="clandlord_manager" name="clandlord_manager"
+            class="form-checkbox text-blue-500 mr-2" onchange="changeHandle('clandlord_manager')">
+          <label for="landlord_manager_email" class="text-sm font-medium text-gray-700">Landlord Manager Email</label>
+        </div>
+        <input type="email" id="landlord_manager_email" name="landlord_manager_email"
+          class="mt-2 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+      </div>
+
+      <!-- Section 8 address -->
+      <div class="mb-6">
+        <div class="flex items-center mb-2">
+          <input type="checkbox" id="csection8" name="csection8" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('csection8')">
+          <h4 class="text-lg font-semibold text-gray-700">Section 8 address</h4>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label for="section8_email" class="block text-sm font-medium text-gray-700">Section 8 Email</label>
+            <input type="email" id="section8_email" name="section8_email"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div>
+            <label for="section8_street_address" class="block text-sm font-medium text-gray-700">Street address</label>
+            <input type="text" id="section8_street_address" name="section8_street_address"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div>
+            <label for="section8_address_line_2" class="block text-sm font-medium text-gray-700">address Line 2</label>
+            <input type="text" id="section8_address_line_2" name="section8_address_line_2"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div class="flex space-x-4">
+            <div class="w-1/2">
+              <label for="section8_cty" class="block text-sm font-medium text-gray-700">cty</label>
+              <input type="text" id="section8_cty" name="section8_cty"
+                class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+            </div>
+            <div class="w-1/2">
+              <label for="section8_st_province_region" class="block text-sm font-medium text-gray-700">st</label>
+              <input type="text" id="section8_st_province_region" name="section8_st_province_region"
+                class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+            </div>
+          </div>
+          <div>
+            <label for="section8_postal" class="block text-sm font-medium text-gray-700">Zip Code</label>
+            <input type="text" id="section8_postal" name="section8_postal"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caseworker address -->
+      <div class="mb-6">
+        <div class="flex items-center mb-2">
+          <input type="checkbox" id="ccaseworker" name="ccaseworker" class="form-checkbox text-blue-500 mr-2"
+            onchange="changeHandle('ccaseworker')">
+          <h4 class="text-lg font-semibold text-gray-700">Caseworker address</h4>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label for="caseworker_email" class="block text-sm font-medium text-gray-700">Other Person Email
+              (Caseworker)</label>
+            <input type="email" id="caseworker_email" name="caseworker_email"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div>
+            <label for="caseworker_street_address" class="block text-sm font-medium text-gray-700">Street
+              address</label>
+            <input type="text" id="caseworker_street_address" name="caseworker_street_address"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div>
+            <label for="caseworker_address_line_2" class="block text-sm font-medium text-gray-700">address Line
+              2</label>
+            <input type="text" id="caseworker_address_line_2" name="caseworker_address_line_2"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+          <div class="flex space-x-4">
+            <div class="w-1/2">
+              <label for="caseworker_cty" class="block text-sm font-medium text-gray-700">cty</label>
+              <input type="text" id="caseworker_cty" name="caseworker_cty"
+                class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+            </div>
+            <div class="w-1/2">
+              <label for="caseworker_st_province_region"
+                class="block text-sm font-medium text-gray-700">st</label>
+              <input type="text" id="caseworker_st_province_region" name="caseworker_st_province_region"
+                class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+            </div>
+          </div>
+          <div>
+            <label for="caseworker_postal" class="block text-sm font-medium text-gray-700">Zip Code</label>
+            <input type="text" id="caseworker_postal" name="caseworker_postal"
+              class="mt-1 w-full p-2 border border-gray-300 rounded text-sm" disabled>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hidden Property ID Field -->
+      <input type="hidden" name="PropertyId" value="<%= PropertyId %>">
+
+      <!-- Submit Button -->
+      <div class="flex justify-center">
+        <button type="submit"
+          class="bg-blue-600 w-full text-white px-6 py-2 rounded-md shadow hover:bg-blue-700">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    function changeHandle(id) {
+      const checkbox = document.getElementById(id);
+
+      switch (id) {
+        case 'tenant1':
+        case 'tenant2':
+        case 'tenant3':
+        case 'tenant4':
+        case 'clandlord':
+        case 'clandlord_manager':
+          toggleSingleInput(id);
+          break;
+        case 'cattorney':
+          toggleSingleInput(id);
+          break;
+        case 'csection8':
+          toggleSection('section8');
+          break;
+        case 'ccaseworker':
+          toggleSection('caseworker');
+          break;
+        default:
+          break;
+      }
+    }
+
+    function toggleSingleInput(id) {
+      let inputId = '';
+      if (id.startsWith('tenant')) {
+        const num = id.replace('tenant', '');
+        inputId = `tenant_email_${num}`;
+      } else if (id === 'clandlord') {
+        inputId = 'landlord_email';
+      } else if (id === 'clandlord_manager') {
+        inputId = 'landlord_manager_email';
+      }
+
+      if (inputId) {
+        const checkbox = document.getElementById(id); // Corrected line to get the checkbox element
+        const input = document.getElementById(inputId);
+        input.disabled = !checkbox.checked;
+        input.required = checkbox.checked;
+        if (!checkbox.checked) {
+          input.value = '';
+        }
+      }
+    }
+
+    function toggleSection(section) {
+      const checkbox = document.getElementById(`c${section}`);
+      const inputs = document.querySelectorAll(`#${section}_email, #${section}_street_address, #${section}_address_line_2, #${section}_cty, #${section}_st_province_region, #${section}_postal`);
+
+      inputs.forEach(input => {
+        input.disabled = !checkbox.checked;
+        // Optional: Define which fields are required
+        if (input.id.includes('address_line_2') || input.id.includes('postal')) {
+          input.required = false;
+        } else {
+          input.required = checkbox.checked;
+        }
+        if (!checkbox.checked) {
+          input.value = ''; // Clear input if disabled
+        }
+      });
+    }
+
+    // Form submission validation
+    document.getElementById("receiver-form").addEventListener("submit", function (event) {
+      // Validate tenant checkboxes
+      for (let i = 4; i >= 2; i--) {
+        const tenantCheck = document.getElementById(`tenant${i}`);
+        const tenantEmail = document.getElementById(`tenant_email_${i}`);
+        const previousTenantCheck = document.getElementById(`tenant${i - 1}`);
+
+        if (tenantCheck.checked) {
+          if (!previousTenantCheck.checked) {
+            alert(`Please select Tenant ${i - 1} before selecting Tenant ${i}.`);
+            event.preventDefault();
+            return;
+          }
+          if (!tenantEmail.value) {
+            alert(`Please enter Tenant ${i} email.`);
+            event.preventDefault();
+            return;
+          }
+        }
+      }
+
+      // Additional validations can be added here if needed
+    });
+  </script>
+
+</body>
+
+</html>

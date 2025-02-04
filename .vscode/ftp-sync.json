@@ -1,0 +1,29 @@
+{
+    "remotePath": "./",
+    "host": "173.255.231.177",
+    "username": "noticeyo",
+    "password": "plQ1Z7gs53",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": true,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.node_modules",
+        "\\.git",
+        "\\.DS_Store",
+        "\\.public"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}

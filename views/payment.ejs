@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <title>Payment</title>
+</head>
+
+<body class="center-form">
+  <div class="container form-container">
+    <h2>Payment form</h2>
+    <span>Make payment for single form.</span>
+    <form method="post" action="/check" class="mt-3">
+      <div class="row">
+        <strong>Billing Name</strong>
+        <div class="mb-3 col-6">
+          <input type="text" class="form-control" id="first" name="fname" required>
+          <div class="form-text">First</div>
+        </div>
+        <div class="mb-3 col-6">
+          <input type="text" class="form-control" id="last" name="lname" required>
+          <div class="form-text">Last</div>
+        </div>
+      </div>
+      <div class="row">
+        <strong>Payment amount</strong>
+        <div class="mb-3 col-6">
+          <input type="number" class="form-control" id="total_dollar" name="dllr" value="75" required>
+          <div class="form-text">$</div>
+        </div>
+        <div class="mb-3 col-6">
+          <input type="number"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength="2" class="form-control" id="total_cent" name="cent" value="00" required>
+          <div class="form-text">cent</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <strong>Payment type *</strong>
+        <select class="form-select mt-1" aria-label="payment_type" name="ptyp" required>
+          <option value="Zelle">Zelle</option>
+          <option value="Visa">Visa</option>
+          <option value="Mastercard" selected>Mastercard</option>
+        </select>
+      </div>
+      <input type="text" name="PropertyId" value="<%= PropertyId %>" hidden>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Tenant Information Form</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-50">
+  <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-lg font-semibold mb-2">Tenant Information Form</h2>
+    <p class="text-sm text-gray-600 mb-4">Enter information for each tenant step by step.</p>
+    
+    <!-- Progress Bar -->
+    <div class="mb-4">
+      <div class="w-full bg-gray-200 rounded-full h-2.5">
+        <div id="progress" class="bg-blue-600 h-2.5 rounded-full" style="width: 25%"></div>
+      </div>
+    </div>
+
+    <form id="tenantForm" method="post" action="/particular">
+      
+      <!-- Tenant 1 Section -->
+      <div id="tenant1" class="tenant-section">
+        <strong class="block mb-2">Tenant 1</strong>
+        <label for="first_name_1" class="text-sm font-medium text-gray-700">First Name</label>
+        <input type="text" id="first_name_1" name="first_name_1" required
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="last_name_1" class="text-sm font-medium text-gray-700">Last Name</label>
+        <input type="text" id="last_name_1" name="last_name_1" required
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="tel_1" class="text-sm font-medium text-gray-700">tel 1</label>
+        <input type="tel" id="tel_1" name="tel_1" required
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="telcel_1" class="text-sm font-medium text-gray-700">tel 2</label>
+        <input type="tel" id="telcel_1" name="telcel_1"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="tel_fax_1" class="text-sm font-medium text-gray-700">tel Fax</label>
+        <input type="tel" id="tel_fax_1" name="tel_fax_1"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="email1_1" class="text-sm font-medium text-gray-700">Email 1</label>
+        <input type="email" id="email1_1" name="email1_1" required
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="email2_1" class="text-sm font-medium text-gray-700">Email 2</label>
+        <input type="email" id="email2_1" name="email2_1"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <div class="flex justify-between">
+          <button type="button" class="w-1/3 py-2 text-gray-500 rounded-md bg-gray-100 cursor-not-allowed" disabled>Previous</button>
+          <button type="button" onclick="showNextTenant(2)"
+            class="w-1/3 py-2 bg-blue-600 text-white rounded-md text-sm font-semibold hover:bg-blue-700">Next</button>
+        </div>
+      </div>
+
+      <!-- Tenant 2 Section -->
+      <div id="tenant2" class="tenant-section hidden">
+        <strong class="block mb-2">Tenant 2</strong>
+        <label for="first_name_2" class="text-sm font-medium text-gray-700">First Name</label>
+        <input type="text" id="first_name_2" name="first_name_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="last_name_2" class="text-sm font-medium text-gray-700">Last Name</label>
+        <input type="text" id="last_name_2" name="last_name_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="tel_2" class="text-sm font-medium text-gray-700">tel 1</label>
+        <input type="tel" id="tel_2" name="tel_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="telcel_2" class="text-sm font-medium text-gray-700">tel 2</label>
+        <input type="tel" id="telcel_2" name="telcel_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="tel_fax_2" class="text-sm font-medium text-gray-700">tel Fax</label>
+        <input type="tel" id="tel_fax_2" name="tel_fax_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="email1_2" class="text-sm font-medium text-gray-700">Email 1</label>
+        <input type="email" id="email1_2" name="email1_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <label for="email2_2" class="text-sm font-medium text-gray-700">Email 2</label>
+        <input type="email" id="email2_2" name="email2_2"
+          class="w-full p-2 mb-4 border border-gray-300 rounded text-sm" onchange="validateSubmit()">
+
+        <div class="flex justify-between">
+          <button type="button" onclick="showNextTenant(1)"
+            class="w-1/3 py-2 bg-gray-600 text-white rounded-md text-sm font-semibold hover:bg-gray-700">Previous</button>
+          <button type="button" onclick="showNextTenant(3)"
+            class="w-1/3 py-2 bg-blue-600 text-white rounded-md text-sm font-semibold hover:bg-blue-700">Next</button>
+        </div>
+      </div>
+
+      <!-- Tenant 3 Section -->
+      <div id="tenant3" class="tenant-section hidden">
+        <!-- Similar structure for Tenant 3 as Tenant 2, changing the IDs and names accordingly -->
+        <!-- Same "Previous" and "Next" buttons with relevant actions -->
+      </div>
+
+      <!-- Tenant 4 Section -->
+      <div id="tenant4" class="tenant-section hidden">
+        <!-- Similar structure for Tenant 4 as Tenant 2, changing the IDs and names accordingly -->
+        <!-- Same "Previous" and "Submit" buttons for Tenant 4 -->
+      </div>
+
+      <input type="text" name="PropertyId" value="<%= PropertyId %>" hidden>
+      <!-- Submit Button (hidden initially) -->
+      <button id="submitBtn" type="submit" class="hidden w-full py-2 mt-4 bg-green-600 text-white rounded-md text-sm font-semibold hover:bg-green-700">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <script>
+    let currentTenant = 1;
+    const totalTenants = 4;
+
+    // Validate if at least one tenant section has valid data before enabling submit
+    function validateSubmit() {
+      const submitButton = document.getElementById('submitBtn');
+      const tenantSections = document.querySelectorAll('.tenant-section');
+      let canSubmit = false;
+
+      // Check if there's any filled tenant section
+      tenantSections.forEach(section => {
+        const inputs = section.querySelectorAll('input');
+        const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+        if (allFilled) {
+          canSubmit = true;
+        }
+      });
+
+      // Enable the submit button if at least one tenant has filled info
+      if (canSubmit) {
+        submitButton.classList.remove('hidden');
+      } else {
+        submitButton.classList.add('hidden');
+      }
+    }
+
+    function updateProgress() {
+      const progressBar = document.getElementById('progress');
+      const percentage = (currentTenant - 1) * 25;
+      progressBar.style.width = `${percentage}%`;
+    }
+
+    function showNextTenant(nextTenant) {
+      // Hide current tenant section
+      document.getElementById(`tenant${currentTenant}`).classList.add('hidden');
+
+      // Show next tenant section
+      document.getElementById(`tenant${nextTenant}`).classList.remove('hidden');
+
+      // Update current tenant number
+      currentTenant = nextTenant;
+
+      // Update the progress bar
+      updateProgress();
+    }
+  </script>
+</body>
+
+</html>

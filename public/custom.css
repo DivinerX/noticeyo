@@ -1,0 +1,12 @@
+input {
+  font-size: small !important;
+}
+
+.center-form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  width: 40%;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Property Form</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-50">
+  <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-lg font-semibold mb-2">Rented property address form</h2>
+    <p class="text-sm text-gray-600 mb-4">This is the form to input the rented property address to be served.</p>
+
+    <form method="post" action="/tenant">
+      <div class="mb-4">
+        <label class="text-md font-medium text-gray-700">Property name</label>
+        <input type="text" id="PropertyName" name="PropertyName"
+          class="w-full p-2 border border-gray-300 rounded text-sm">
+      </div>
+      <label class="text-md font-medium text-gray-700">Street address</label>
+      <div class="mb-4">
+        <label for="street_address" class="block text-sm font-medium text-gray-500">Street</label>
+        <input type="text" id="street_address" name="address" required
+          class="w-full p-2 border border-gray-300 rounded text-sm">
+      </div>
+      <div class="flex space-x-4">
+        <div class="flex-1 mb-4">
+          <label for="unit_or_suite" class="block text-sm font-medium text-gray-500">unit or Suite</label>
+          <input type="text" id="unit_or_suite" name="unit" class="w-full p-2 border border-gray-300 rounded text-sm">
+        </div>
+
+        <div class="flex-1 mb-4">
+          <label for="cnty" class="block text-sm font-medium text-gray-500">cnty</label>
+          <select class="w-full p-2 border border-gray-300 rounded text-sm" aria-label="cnty" name="cnty" required>
+            <option value="" selected="selected"></option>
+            <option value="Alameda">Alameda</option>
+            <option value="Alpine">Alpine</option>
+            <option value="Amador">Amador</option>
+            <option value="Butte">Butte</option>
+            <option value="Calaveras">Calaveras</option>
+            <option value="Colusa">Colusa</option>
+            <option value="Contra Costa">Contra Costa</option>
+            <option value="Del Norte">Del Norte</option>
+            <option value="El Dorado">El Dorado</option>
+            <option value="Fresno">Fresno</option>
+            <option value="Glenn">Glenn</option>
+            <option value="Humboldt">Humboldt</option>
+            <option value="Imperial">Imperial</option>
+            <option value="Inyo">Inyo</option>
+            <option value="Kern">Kern</option>
+            <option value="Kings">Kings</option>
+            <option value="Lake">Lake</option>
+            <option value="Lassen">Lassen</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Madera">Madera</option>
+            <option value="Marin">Marin</option>
+            <option value="Mariposa">Mariposa</option>
+            <option value="Mendocino">Mendocino</option>
+            <option value="Merced">Merced</option>
+            <option value="Modoc">Modoc</option>
+            <option value="Mono">Mono</option>
+            <option value="Monterey">Monterey</option>
+            <option value="Napa">Napa</option>
+            <option value="Nevada">Nevada</option>
+            <option value="Orange">Orange</option>
+            <option value="Placer">Placer</option>
+            <option value="Plumas">Plumas</option>
+            <option value="Riverside">Riverside</option>
+            <option value="Sacramento">Sacramento</option>
+            <option value="San Benito">San Benito</option>
+            <option value="San Bernardino">San Bernardino</option>
+            <option value="San Diego">San Diego</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="San Joaquin">San Joaquin</option>
+            <option value="San Luis Obispo">San Luis Obispo</option>
+            <option value="San Mateo">San Mateo</option>
+            <option value="Santa Barbara">Santa Barbara</option>
+            <option value="Santa Clara">Santa Clara</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+            <option value="Shasta">Shasta</option>
+            <option value="Sierra">Sierra</option>
+            <option value="Siskiyou">Siskiyou</option>
+            <option value="Solano">Solano</option>
+            <option value="Sonoma">Sonoma</option>
+            <option value="Stanislaus">Stanislaus</option>
+            <option value="Sutter">Sutter</option>
+            <option value="Tehama">Tehama</option>
+            <option value="Trinity">Trinity</option>
+            <option value="Tulare">Tulare</option>
+            <option value="Tuolumne">Tuolumne</option>
+            <option value="Ventura">Ventura</option>
+            <option value="Yolo">Yolo</option>
+            <option value="Yuba">Yuba</option>
+          </select>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <div class="flex-1 mb-4">
+          <label for="cty" class="block text-sm font-medium text-gray-500">cty</label>
+          <input type="text" id="cty" name="cty" required class="w-full p-2 border border-gray-300 rounded text-sm">
+        </div>
+        <div class="flex-1 mb-4">
+          <label for="st_province_region" class="block text-sm font-medium text-gray-500">st</label>
+          <input type="text" id="st_province_region" name="st" value="California" readonly
+            class="w-full p-2 border border-gray-300 rounded text-sm bg-gray-100 text-gray-500">
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <div class="flex-1 mb-4">
+          <label for="postal" class="block text-sm font-medium text-gray-500">Zip Code</label>
+          <input type="text" id="postal" name="zip" required
+            class="w-full p-2 border border-gray-300 rounded text-sm">
+        </div>
+        <div class="flex-1 mb-4">
+          <label for="numunits" class="block text-sm font-medium text-gray-500">Number of units</label>
+          <input type="number" id="numunits" name="numunits" class="w-full p-2 border border-gray-300 rounded text-sm">
+        </div>
+      </div>
+      <input type="hidden" name="LandlordId" value="<%= LandlordId %>">
+      <button type="submit"
+        class="w-full mt-4 py-2 bg-blue-600 text-white rounded-md text-sm font-semibold hover:bg-blue-700">
+        Submit
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>

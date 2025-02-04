@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Pay Particular</title>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="container mx-auto bg-white shadow-md p-8 rounded-lg max-w-lg">
+    <h2 class="text-xl font-bold mb-4">Notice particulars form</h2>
+    <span class="text-gray-600">These are the particulars transferred to the NOTICE to be served.</span>
+    <form method="post" action="/receiver" class="mt-6 space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="rent_from" class="block text-sm font-medium text-gray-500">Rent due from date:</label>
+          <input type="date" class="border rounded-md p-2 w-full" id="rent_from" name="RentFrom" required>
+        </div>
+        <div>
+          <label for="rent_through" class="block text-sm font-medium text-gray-500">Rent due through date:</label>
+          <input type="date" class="border rounded-md p-2 w-full" id="rent_through" name="RentThrough" required>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-500">Total amount rent due</label>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <input type="number" class="border rounded-md p-2 w-full" id="total_dollar" name="Dollars" placeholder="Dollars" required>
+          </div>
+          <div>
+            <input type="number" maxlength="2" class="border rounded-md p-2 w-full" id="total_cent" name="Cents" value="00" placeholder="Cents" required>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="total_written" class="block text-sm font-medium text-gray-500">Total amount due written</label>
+        <input type="text" class="border rounded-md p-2 w-full" id="total_written" name="Written" placeholder="e.g., One Thousand Two Hundred" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-500">Pay rent to:</label>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <input type="text" class="border rounded-md p-2 w-full" id="pay_rent_first" name="PayToFirst" placeholder="First" required>
+          </div>
+          <div>
+            <input type="text" class="border rounded-md p-2 w-full" id="pay_rent_last" name="PayToLast" placeholder="Last" required>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-500">Phone Number</label>
+        <input type="tel" id="phone" class="border rounded-md p-2 w-full" name="tel" placeholder="###-###-####" maxlength="12" required>
+      </div>
+      <div>
+        <label for="street_address" class="block text-sm font-medium text-gray-500">Street address</label>
+        <input type="text" class="border rounded-md p-2 w-full" id="street_address" name="address" required>
+      </div>
+      <div>
+        <label for="address_line_2" class="block text-sm font-medium text-gray-500">address line 2</label>
+        <input type="text" class="border rounded-md p-2 w-full" id="address_line_2" name="unit">
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="cty" class="block text-sm font-medium text-gray-500">cty</label>
+          <input type="text" class="border rounded-md p-2 w-full" id="cty" name="cty" required>
+        </div>
+        <div>
+          <label for="st_province_region" class="block text-sm font-medium text-gray-500">st / Province / Region</label>
+          <input type="text" class="border rounded-md p-2 w-full" id="st_province_region" name="st">
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="postal" class="block text-sm font-medium text-gray-500">Zip Code</label>
+          <input type="text" class="border rounded-md p-2 w-full" id="postal" name="zip" required>
+        </div>
+        <div>
+          <label for="cnty" class="block text-sm font-medium text-gray-500">cnty</label>
+          <select class="w-full p-2 border border-gray-300 rounded text-sm" aria-label="cnty" name="cnty" required>
+            <option value="" selected="selected"></option>
+            <option value="Alameda">Alameda</option>
+            <option value="Alpine">Alpine</option>
+            <option value="Amador">Amador</option>
+            <option value="Butte">Butte</option>
+            <option value="Calaveras">Calaveras</option>
+            <option value="Colusa">Colusa</option>
+            <option value="Contra Costa">Contra Costa</option>
+            <option value="Del Norte">Del Norte</option>
+            <option value="El Dorado">El Dorado</option>
+            <option value="Fresno">Fresno</option>
+            <option value="Glenn">Glenn</option>
+            <option value="Humboldt">Humboldt</option>
+            <option value="Imperial">Imperial</option>
+            <option value="Inyo">Inyo</option>
+            <option value="Kern">Kern</option>
+            <option value="Kings">Kings</option>
+            <option value="Lake">Lake</option>
+            <option value="Lassen">Lassen</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Madera">Madera</option>
+            <option value="Marin">Marin</option>
+            <option value="Mariposa">Mariposa</option>
+            <option value="Mendocino">Mendocino</option>
+            <option value="Merced">Merced</option>
+            <option value="Modoc">Modoc</option>
+            <option value="Mono">Mono</option>
+            <option value="Monterey">Monterey</option>
+            <option value="Napa">Napa</option>
+            <option value="Nevada">Nevada</option>
+            <option value="Orange">Orange</option>
+            <option value="Placer">Placer</option>
+            <option value="Plumas">Plumas</option>
+            <option value="Riverside">Riverside</option>
+            <option value="Sacramento">Sacramento</option>
+            <option value="San Benito">San Benito</option>
+            <option value="San Bernardino">San Bernardino</option>
+            <option value="San Diego">San Diego</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="San Joaquin">San Joaquin</option>
+            <option value="San Luis Obispo">San Luis Obispo</option>
+            <option value="San Mateo">San Mateo</option>
+            <option value="Santa Barbara">Santa Barbara</option>
+            <option value="Santa Clara">Santa Clara</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+            <option value="Shasta">Shasta</option>
+            <option value="Sierra">Sierra</option>
+            <option value="Siskiyou">Siskiyou</option>
+            <option value="Solano">Solano</option>
+            <option value="Sonoma">Sonoma</option>
+            <option value="Stanislaus">Stanislaus</option>
+            <option value="Sutter">Sutter</option>
+            <option value="Tehama">Tehama</option>
+            <option value="Trinity">Trinity</option>
+            <option value="Tulare">Tulare</option>
+            <option value="Tuolumne">Tuolumne</option>
+            <option value="Ventura">Ventura</option>
+            <option value="Yolo">Yolo</option>
+            <option value="Yuba">Yuba</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="hours_open" class="block text-sm font-medium text-gray-500">Hours open to pay rent:</label>
+          <input type="text" class="border rounded-md p-2 w-full" id="hours_open" name="OpenHours" value="9am - 5pm" required>
+        </div>
+        <div>
+          <label for="days_open" class="block text-sm font-medium text-gray-500">Days open to pay rent</label>
+          <input type="text" class="border rounded-md p-2 w-full" id="days_open" name="OpenDays" value="Monday - Saturday (no holidays)" required>
+        </div>
+      </div>
+      <input type="hidden" name="PropertyId" value="<%= PropertyId %>">
+      <button type="submit" class="mt-6 w-full bg-blue-500 text-white font-bold py-2 rounded-md">Submit</button>
+    </form>
+  </div>
+  <script>
+    const phoneInput = document.getElementById('phone');
+
+    phoneInput.addEventListener('input', function () {
+      let value = phoneInput.value.replace(/\D/g, '');
+      if (value.length > 3 && value.length <= 6) {
+        value = `${value.slice(0, 3)}-${value.slice(3)}`;
+      } else if (value.length > 6) {
+        value = `${value.slice(0, 3)}-${value.slice(3, 6)}-${value.slice(6, 10)}`;
+      }
+      phoneInput.value = value;
+    });
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      const phoneValue = phoneInput.value;
+      if (!/^\d{3}-\d{3}-\d{4}$/.test(phoneValue)) {
+        e.preventDefault();
+        alert('Please enter a valid phone number in the format ###-###-####');
+      }
+    });
+  </script>
+</body>
+
+</html>

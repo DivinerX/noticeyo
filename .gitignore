@@ -1,0 +1,5 @@
+*.deb
+*.odt
+*.pdf
+*.rar
+/node_modules
