@@ -29,7 +29,6 @@ module.exports = {
     const recipientData = {
       ...recipient,
       country: "US"
-      // cnty: alpha2Code(recipient.cnty)
     }
     let senderPostGrid = await fetch("https://api.postgrid.com/print-mail/v1/contacts", {
       method: 'POST',

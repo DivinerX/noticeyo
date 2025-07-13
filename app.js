@@ -257,16 +257,15 @@ app.post('/mail/:id', async (req, res) => {
     let sender = property.OWN
     let recipient = {
       "addressLine1": property.address,
-      "cty": property.cty,
-      "cnty": property.cnty,
-      "provinceOrst": property.st,
-      "postalOrZip:": property.zip,
+      "city": property.cty,
+      "postalOrZip": property.zip,
+      "country": "US"
     }
     property.TENs.forEach(async Tenant => {
       recipient = {
         ...recipient,
-        fname: Tenant.fname,
-        lname: Tenant.lname,
+        firstName: Tenant.fname,
+        lastName: Tenant.lname,
       }
       emailList = [
         ...emailList,
