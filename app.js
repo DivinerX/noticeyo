@@ -40,7 +40,7 @@ app.post('/tenant', async (req, res) => {
   try {
     const data = req.body;
     const newProperty = await Property.create({ ...data })
-    res.render('tenant', { PropertyId: newProperty.id, LandlordId: data.LandlordId })
+    res.render('tenant', { P_ID: newProperty.id, LandlordId: data.LandlordId })
   } catch (err) {
     res.render('500', { err })
   }
@@ -60,11 +60,11 @@ app.post('/particular', async (req, res) => {
           telfax: data[`tel_fax_${i}`],
           eml1: data[`email1_${i}`],
           eml2: data[`email2_${i}`],
-          PropertyId: data.PropertyId
+          P_ID: data.P_ID
         })
       }
     }
-    res.render('particular', { PropertyId: data.PropertyId })
+    res.render('particular', { P_ID: data.P_ID })
   } catch (err) {
     console.error(err)
     res.render('500', { err })
@@ -75,7 +75,7 @@ app.post('/receiver', async (req, res) => {
   try {
     const data = req.body;
     await Particular.create({ ...data })
-    res.render('receiver', { PropertyId: data.PropertyId })
+    res.render('receiver', { P_ID: data.P_ID })
   } catch (err) {
     res.render('500', { err })
   }
@@ -87,13 +87,13 @@ app.post('/payment', async (req, res) => {
   const t = await sequelize.transaction();
   const receiver = {};
   try {
-    const tenant1 = await Tenant.findOne({ where: { PropertyId: data.PropertyId, Index: 1 } });
+    const tenant1 = await Tenant.findOne({ where: { P_ID: data.P_ID, Index: 1 } });
     tenant1.eml1 = data[`tenant_email_1`]
     receiver[`Tenant1`] = true;
     await tenant1.save({ transaction: t })
     for (let i = 2; i <= 4; i++) {
       if (data[`ctenant${i}`] == "on") {
-        const tenant = await Tenant.findOne({ where: { PropertyId: data.PropertyId, Index: i } });
+        const tenant = await Tenant.findOne({ where: { P_ID: data.P_ID, Index: i } });
         tenant.eml1 = data[`tenant_email_${i}`]
         receiver[`Tenant${i}`] = true;
         await tenant.save({ transaction: t })
@@ -113,7 +113,7 @@ app.post('/payment', async (req, res) => {
         cty: data['section8_cty'],
         st: data['section8_st_province_region'],
         zip: data['section8_postal'],
-        PropertyId: data.PropertyId
+        P_ID: data.P_ID
       }
       await Section8.create(section8, { transaction: t })
     }
@@ -126,13 +126,13 @@ app.post('/payment', async (req, res) => {
         st: data['caseworker_st_province_region'],
         zip: data['caseworker_postal'],
         Index: 1,
-        PropertyId: data.PropertyId
+        P_ID: data.P_ID
       }
       await CaseWorker.create(caseworker, { transaction: t })
     }
-    receiver.PropertyId = data.PropertyId
+    receiver.P_ID = data.P_ID
     await Receiver.create(receiver, { transaction: t })
-    res.render('payment', { PropertyId: data.PropertyId })
+    res.render('payment', { P_ID: data.P_ID })
     await t.commit();
   } catch (err) {
     res.render('500', { err })
@@ -144,7 +144,7 @@ app.post('/check', async (req, res) => {
     const data = req.body;
     await Payment.create(data)
     const property = await Property.findOne({
-      where: { id: data.PropertyId },
+      where: { id: data.P_ID },
       include: [
         {
           model: Landlord

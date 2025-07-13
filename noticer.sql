@@ -79,10 +79,10 @@ CREATE TABLE `CaseWorkers` (
   `Email2` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `CaseWorkers_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `CaseWorkers_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -203,10 +203,10 @@ CREATE TABLE `Particulars` (
   `OpenDays` varchar(255) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `Particulars_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `Particulars_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -236,10 +236,10 @@ CREATE TABLE `Payments` (
   `PaymentType` varchar(255) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `Payments_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `Payments_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -308,10 +308,10 @@ CREATE TABLE `Receivers` (
   `CaseWorker` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `Receivers_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `Receivers_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -347,10 +347,10 @@ CREATE TABLE `Section8s` (
   `Email2` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `Section8s_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `Section8s_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -386,10 +386,10 @@ CREATE TABLE `Tenants` (
   `DLST` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `PropertyId` int DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `PropertyId` (`PropertyId`),
-  CONSTRAINT `Tenants_ibfk_1` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `P_ID` (`P_ID`),
+  CONSTRAINT `Tenants_ibfk_1` FOREIGN KEY (`P_ID`) REFERENCES `Properties` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
