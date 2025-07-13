@@ -42,6 +42,7 @@ app.post('/tenant', async (req, res) => {
     const newProperty = await Property.create({ ...data })
     res.render('tenant', { P_ID: newProperty.id, O_ID: data.O_ID })
   } catch (err) {
+    console.error(err)
     res.render('500', { err })
   }
 })
@@ -77,6 +78,7 @@ app.post('/receiver', async (req, res) => {
     await Particular.create({ ...data })
     res.render('receiver', { P_ID: data.P_ID })
   } catch (err) {
+    console.error(err)
     res.render('500', { err })
   }
 })
@@ -135,6 +137,7 @@ app.post('/payment', async (req, res) => {
     res.render('payment', { P_ID: data.P_ID })
     await t.commit();
   } catch (err) {
+    console.error(err)
     res.render('500', { err })
     await t.rollback();
   }
@@ -163,6 +166,7 @@ app.post('/check', async (req, res) => {
     console.log(property)
     res.render('check', { data: property })
   } catch (err) {
+    console.error(err)
     res.render('500', { err })
   }
 })
@@ -194,6 +198,7 @@ app.post('/3day', async (req, res) => {
     await convertOdtToPdf(`./public/${id}.odt`, `./public/`)
     res.render('pdfshow', { data: property })
   } catch (err) {
+    console.error(err)
     res.render('500', { err })
   }
 })
@@ -335,7 +340,7 @@ app.post('/mail/:id', async (req, res) => {
     }
     res.render("success", { addresses: emailList, recipients: emailReceivers })
   } catch (err) {
-    console.log(err)
+    console.error(err)
     res.render('500', { err })
   }
 })
