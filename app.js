@@ -258,7 +258,7 @@ app.post('/mail/:id', async (req, res) => {
       "provinceOrst": property.st,
       "postalOrZip:": property.zip,
     }
-    property.Tenants.forEach(async Tenant => {
+    property.TENs.forEach(async Tenant => {
       recipient = {
         ...recipient,
         fname: Tenant.fname,
