@@ -1,14 +1,10 @@
 const fs = require('fs')
 const FormData = require('form-data')
-const coutryCode = require('./countryCode')
 const { PDFDocument, PageSizes } = require('pdf-lib');
 
 // const api_key = "live_sk_n6d8UYmrfLagYXY4G2pccP"
 const api_key = "test_sk_ttApE7u67Zfr4tc8JhMkyE"
 const PDF_PATH = './public/postgrid.pdf'
-
-const alpha2Code = cntyName =>
-  coutryCode[coutryCode.findIndex(c => c.name === cntyName)].alpha2
 
 const addNewPageOnPDF = async (filepath) => {
   const existingPdfBytes = fs.readFileSync(filepath);
@@ -22,18 +18,17 @@ module.exports = {
   createLetterWithPDF: async function (sender, recipient, filename) {
     const fetch = (await import('node-fetch')).default;
     const bodyData = JSON.stringify({
-      "fname": sender.fname,
-      "lname": sender.lname,
+      "firstName": sender.fname,
+      "lastName": sender.lname,
       "addressLine1": sender.address,
-      "cty": sender.cty,
+      "city": sender.cty,
       "provinceOrst": sender.st,
       "postalOrZip": sender.zip,
-      "cnty": "US"
-      // "cnty": alpha2Code(sender.cnty)
+      "country": "US"
     })
     const recipientData = {
       ...recipient,
-      cnty: "US"
+      country: "US"
       // cnty: alpha2Code(recipient.cnty)
     }
     let senderPostGrid = await fetch("https://api.postgrid.com/print-mail/v1/contacts", {
