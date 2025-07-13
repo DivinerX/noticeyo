@@ -194,7 +194,6 @@ app.post('/3day', async (req, res) => {
         },
       ]
     })
-    console.log("--------------- property", property)
     await fillOdtBlanks("./templates/3 DAY NOTICE template.odt", `./public/${id}.odt`, property)
     await convertOdtToPdf(`./public/${id}.odt`, `./public/`)
     res.render('pdfshow', { data: property })
@@ -249,6 +248,8 @@ app.post('/mail/:id', async (req, res) => {
         }
       ]
     })
+
+    console.log("--------------- property", property)
 
     let sender = property.OWN
     let recipient = {
