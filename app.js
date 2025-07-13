@@ -323,7 +323,7 @@ app.post('/mail/:id', async (req, res) => {
         }
       ]
     }
-    if (property.Receiver.lndld) {
+    if (property.RECEIVER.lndld) {
       emailReceivers = [
         ...emailReceivers,
         {
@@ -333,15 +333,15 @@ app.post('/mail/:id', async (req, res) => {
       ]
       transfer(property.OWN.eml1, req.params.id)
     }
-    if (property.Receiver.mngr) {
+    if (property.RECEIVER.mngr) {
       emailReceivers = [
         ...emailReceivers,
         {
           role: 'Landlord Manager',
-          email: property.Receiver.mngr,
+          email: property.RECEIVER.mngr,
         }
       ]
-      transfer(property.Receiver.mngr, req.params.id)
+      transfer(property.RECEIVER.mngr, req.params.id)
     }
     res.render("success", { addresses: emailList, recipients: emailReceivers })
   } catch (err) {
