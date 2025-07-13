@@ -29,7 +29,7 @@ app.post('/property', async (req, res) => {
   try {
     const data = req.body;
     const newLandload = await Landlord.create({ ...data })
-    res.render('property', { LandlordId: newLandload.id })
+    res.render('property', { O_ID: newLandload.id })
   } catch (err) {
     console.error(err)
     res.render('500', { err })
@@ -40,7 +40,7 @@ app.post('/tenant', async (req, res) => {
   try {
     const data = req.body;
     const newProperty = await Property.create({ ...data })
-    res.render('tenant', { P_ID: newProperty.id, LandlordId: data.LandlordId })
+    res.render('tenant', { P_ID: newProperty.id, O_ID: data.O_ID })
   } catch (err) {
     res.render('500', { err })
   }

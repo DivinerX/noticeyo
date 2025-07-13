@@ -40,10 +40,10 @@ CREATE TABLE `Attorneys` (
   `Email2` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `LandlordId` int DEFAULT NULL,
+  `O_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `LandlordId` (`LandlordId`),
-  CONSTRAINT `Attorneys_ibfk_1` FOREIGN KEY (`LandlordId`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `O_ID` (`O_ID`),
+  CONSTRAINT `Attorneys_ibfk_1` FOREIGN KEY (`O_ID`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -160,10 +160,10 @@ CREATE TABLE `Managers` (
   `Email2` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `LandlordId` int DEFAULT NULL,
+  `O_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `LandlordId` (`LandlordId`),
-  CONSTRAINT `Managers_ibfk_1` FOREIGN KEY (`LandlordId`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `O_ID` (`O_ID`),
+  CONSTRAINT `Managers_ibfk_1` FOREIGN KEY (`O_ID`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -272,10 +272,10 @@ CREATE TABLE `Properties` (
   `NumUnitTotal` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `LandlordId` int DEFAULT NULL,
+  `O_ID` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `LandlordId` (`LandlordId`),
-  CONSTRAINT `Properties_ibfk_1` FOREIGN KEY (`LandlordId`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `O_ID` (`O_ID`),
+  CONSTRAINT `Properties_ibfk_1` FOREIGN KEY (`O_ID`) REFERENCES `Landlords` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
