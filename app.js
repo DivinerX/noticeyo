@@ -250,7 +250,7 @@ app.post('/mail/:id', async (req, res) => {
       ]
     })
 
-    let sender = property.Landlord
+    let sender = property.OWN
     let recipient = {
       "addressLine1": property.address,
       "cty": property.cty,
