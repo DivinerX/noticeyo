@@ -323,25 +323,25 @@ app.post('/mail/:id', async (req, res) => {
         }
       ]
     }
-    if (property.Receiver.Landlord) {
+    if (property.Receiver.lndld) {
       emailReceivers = [
         ...emailReceivers,
         {
           role: 'Landlord',
-          email: property.Receiver.Landlord,
+          email: property.OWN.eml1,
         }
       ]
-      transfer(property.Receiver.Landlord, req.params.id)
+      transfer(property.OWN.eml1, req.params.id)
     }
-    if (property.Receiver.Manager) {
+    if (property.Receiver.mngr) {
       emailReceivers = [
         ...emailReceivers,
         {
           role: 'Landlord Manager',
-          email: property.Receiver.Manager,
+          email: property.Receiver.mngr,
         }
       ]
-      transfer(property.Receiver.Manager, req.params.id)
+      transfer(property.Receiver.mngr, req.params.id)
     }
     res.render("success", { addresses: emailList, recipients: emailReceivers })
   } catch (err) {
