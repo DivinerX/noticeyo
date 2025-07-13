@@ -25,9 +25,9 @@ async function fillOdtBlanks(odtFilePath, outputFilePath, customData) {
   xmlContent = xmlContent.replace(/{tenant.first_name}/g, customData.TENs[0].fname);
   xmlContent = xmlContent.replace(/{tenant.last_name}/g, customData.TENs[0].lname);
   xmlContent = xmlContent.replace(/{property.street_address}/g, customData.address);
-  xmlContent = xmlContent.replace(/{property.cty}/g, customData.cty);
-  xmlContent = xmlContent.replace(/{property.cnty}/g, customData.cnty);
-  xmlContent = xmlContent.replace(/{property.st_province_region}/g, customData.st);
+  xmlContent = xmlContent.replace(/{property.city}/g, customData.cty);
+  xmlContent = xmlContent.replace(/{property.county}/g, customData.cnty);
+  xmlContent = xmlContent.replace(/{property.state_province_region}/g, customData.st);
   xmlContent = xmlContent.replace(/{property.postal}/g, customData.zip);
   xmlContent = xmlContent.replace(/{particular.total_written}/g, customData.PARTICULAR.Written);
   xmlContent = xmlContent.replace(/{particular.total_dollar}/g, customData.PARTICULAR.Dollars);
@@ -35,9 +35,9 @@ async function fillOdtBlanks(odtFilePath, outputFilePath, customData) {
   xmlContent = xmlContent.replace(/{particular.first_name}/g, customData.PARTICULAR.PayToFirst);
   xmlContent = xmlContent.replace(/{particular.last_name}/g, customData.PARTICULAR.PayToLast);
   xmlContent = xmlContent.replace(/{particular.street_address}/g, customData.PARTICULAR.address);
-  xmlContent = xmlContent.replace(/{particular.cty}/g, customData.PARTICULAR.cty);
-  xmlContent = xmlContent.replace(/{particular.cnty}/g, customData.PARTICULAR.cnty);
-  xmlContent = xmlContent.replace(/{particular.st_province_region}/g, customData.PARTICULAR.st);
+  xmlContent = xmlContent.replace(/{particular.city}/g, customData.PARTICULAR.cty);
+  xmlContent = xmlContent.replace(/{particular.county}/g, customData.PARTICULAR.cnty);
+  xmlContent = xmlContent.replace(/{particular.state_province_region}/g, customData.PARTICULAR.st);
   xmlContent = xmlContent.replace(/{particular.postal}/g, customData.PARTICULAR.zip);
   xmlContent = xmlContent.replace(/{particular.days_open}/g, customData.PARTICULAR.OpenDays);
   xmlContent = xmlContent.replace(/{particular.hours_open}/g, customData.PARTICULAR.OpenHours);
