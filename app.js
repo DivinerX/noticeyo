@@ -245,6 +245,9 @@ app.post('/mail/:id', async (req, res) => {
         },
         {
           model: Landlord
+        },
+        {
+          model: Receiver
         }
       ]
     })
