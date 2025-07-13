@@ -89,13 +89,13 @@ app.post('/payment', async (req, res) => {
   try {
     const tenant1 = await Tenant.findOne({ where: { P_ID: data.P_ID, Index: 1 } });
     tenant1.eml1 = data[`tenant_email_1`]
-    receiver[`Tenant1`] = true;
+    receiver[`tnt1`] = true;
     await tenant1.save({ transaction: t })
     for (let i = 2; i <= 4; i++) {
       if (data[`ctenant${i}`] == "on") {
         const tenant = await Tenant.findOne({ where: { P_ID: data.P_ID, Index: i } });
         tenant.eml1 = data[`tenant_email_${i}`]
-        receiver[`Tenant${i}`] = true;
+        receiver[`tnt${i}`] = true;
         await tenant.save({ transaction: t })
       }
     }
